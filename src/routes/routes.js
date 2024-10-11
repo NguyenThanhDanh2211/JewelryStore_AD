@@ -4,6 +4,8 @@ import Home from '../pages/Home';
 import Discount from '../pages/Discount';
 import Product from '../pages/Product';
 import Order from '../pages/Order';
+import AddProduct from '../pages/AddProduct';
+import UpdateProduct from '../pages/UpdateProduct';
 
 const publicRoutes = [
   {
@@ -13,6 +15,14 @@ const publicRoutes = [
   {
     path: config.routes.product,
     component: Product,
+  },
+  {
+    path: config.routes.addProduct,
+    component: AddProduct,
+  },
+  {
+    path: config.routes.updateProduct,
+    component: UpdateProduct,
   },
   {
     path: config.routes.order,

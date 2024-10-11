@@ -1,5 +1,7 @@
+import AllProducts from '../../components/AllProducts/AllProducts';
+
 function Product() {
-  return <h1>pro</h1>;
+  return <AllProducts />;
 }
 
 export default Product;

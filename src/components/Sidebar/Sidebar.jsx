@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import {
   List,
   Stack,
@@ -7,16 +9,22 @@ import {
   ListItemButton,
   Box,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+
+import { Dashboard } from '@mui/icons-material';
+import CategoryIcon from '@mui/icons-material/Category';
+import DiscountIcon from '@mui/icons-material/Discount';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 const SidebarContainer = styled(Stack)(({ theme }) => ({
   display: 'flex',
   paddingTop: theme.spacing(3),
   flexDirection: 'column',
-  alignItems: 'center', // Đảm bảo căn giữa theo chiều ngang
+  alignItems: 'center',
+  backgroundColor: '#fff',
   height: '100vh',
-  width: '240px',
-  border: '1px solid #000',
+  width: '250px',
+  // border: '1px solid #000',
+  // borderRadius: '8px',
   position: 'fixed',
   top: 0,
   left: 0,
@@ -37,21 +45,33 @@ function Sidebar() {
       <List sx={{ width: '100%' }}>
         <ListItem>
           <ListItemButton component={Link} to="/">
+            <Box mr={2}>
+              <Dashboard />
+            </Box>
             <ListItemText primary="Dashboard" />
           </ListItemButton>
         </ListItem>
         <ListItem>
           <ListItemButton component={Link} to="/products">
+            <Box mr={2}>
+              <CategoryIcon />
+            </Box>
             <ListItemText primary="Products" />
           </ListItemButton>
         </ListItem>
         <ListItem>
           <ListItemButton component={Link} to="/order">
+            <Box mr={2}>
+              <AddShoppingCartIcon />
+            </Box>
             <ListItemText primary="Order" />
           </ListItemButton>
         </ListItem>
         <ListItem>
           <ListItemButton component={Link} to="/discount">
+            <Box mr={2}>
+              <DiscountIcon />
+            </Box>
             <ListItemText primary="Discount" />
           </ListItemButton>
         </ListItem>

@@ -1,5 +1,7 @@
+import DiscountCompo from '../../components/Discount';
+
 function Discount() {
-  return <h1>dis</h1>;
+  return <DiscountCompo />;
 }
 
 export default Discount;

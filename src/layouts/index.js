@@ -4,16 +4,20 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import Nav from '../components/Nav/Nav';
 
 const LayoutContainer = styled(Stack)(({ theme }) => ({
-  height: '100vh',
+  // height: '100vh',
   display: 'flex',
+  // backgroundColor: '#f9fafb',
+  height: 'auto',
+  top: 0,
 }));
 
 const ContentContainer = styled(Stack)(({ theme }) => ({
   flexGrow: 1,
   padding: theme.spacing(2),
   marginLeft: '240px',
-  marginTop: '5px',
-  border: '1px solid #000',
+  marginTop: '65px',
+  height: 'auto',
+  backgroundColor: '#f9fafb',
 }));
 
 function Layout({ children }) {
