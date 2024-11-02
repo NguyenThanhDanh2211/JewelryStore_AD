@@ -28,10 +28,9 @@ function AddProduct() {
     tag: '',
     collect: '',
     description: '',
-    weight: '',
+    detail: '',
     stoneMain: '',
     stoneSecond: '',
-    // gender: '',
     men: false,
   });
 
@@ -77,16 +76,13 @@ function AddProduct() {
         tag: '',
         collect: '',
         description: '',
-        weight: '',
+        detail: '',
         stoneMain: '',
         stoneSecond: '',
-        // gender: '',
         men: false,
       });
-      // console.log('Product added:', newProduct);
     } catch (error) {
       setError('Failed to add product');
-      // console.error('Error adding product:', error);
     }
   };
 
@@ -165,8 +161,8 @@ function AddProduct() {
         </Grid>
 
         {/* Category */}
-        <Grid item xs={12} sm={6}>
-          <FormControl fullWidth variant="outlined">
+        <Grid item xs={12} sm={3}>
+          <FormControl fullWidth variant="outlined" required>
             <InputLabel>Category</InputLabel>
             <Select
               name="category"
@@ -183,8 +179,8 @@ function AddProduct() {
         </Grid>
 
         {/* Tag (Material) */}
-        <Grid item xs={12} sm={6}>
-          <FormControl fullWidth variant="outlined">
+        <Grid item xs={12} sm={3}>
+          <FormControl fullWidth variant="outlined" required>
             <InputLabel>Material</InputLabel>
             <Select
               name="tag"
@@ -200,7 +196,7 @@ function AddProduct() {
         </Grid>
 
         {/* Collect */}
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={3}>
           <TextField
             label="Collection"
             name="collect"
@@ -211,58 +207,10 @@ function AddProduct() {
           />
         </Grid>
 
-        {/* Weight */}
-        <Grid item xs={12} sm={6}>
-          <TextField
-            label="Weight"
-            name="weight"
-            fullWidth
-            variant="outlined"
-            value={newProduct.weight}
-            onChange={handleChange}
-          />
-        </Grid>
-
-        {/* Stone Main */}
-        <Grid item xs={12} sm={6}>
-          <TextField
-            label="Main Stone"
-            name="stoneMain"
-            fullWidth
-            variant="outlined"
-            value={newProduct.stoneMain}
-            onChange={handleChange}
-          />
-        </Grid>
-
-        {/* Stone Second */}
-        <Grid item xs={12} sm={6}>
-          <TextField
-            label="Secondary Stone"
-            name="stoneSecond"
-            fullWidth
-            variant="outlined"
-            value={newProduct.stoneSecond}
-            onChange={handleChange}
-          />
-        </Grid>
-
-        {/* Gender */}
-        {/* <Grid item xs={12} sm={6}>
-          <FormControl fullWidth variant="outlined">
-            <InputLabel>Gender</InputLabel>
-            <Select name="gender" value={newProduct.gender} onChange={handleChange} label="Gender">
-              <MenuItem value="Male">Male</MenuItem>
-              <MenuItem value="Female">Female</MenuItem>
-              <MenuItem value="Unisex">Unisex</MenuItem>
-            </Select>
-          </FormControl>
-        </Grid> */}
-
         {/* Men (Checkbox) */}
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={3}>
           <FormControl fullWidth variant="outlined">
-            <InputLabel>Men's Collect</InputLabel>
+            <InputLabel>Men's Collection</InputLabel>
             <Select
               name="men"
               value={newProduct.men}
@@ -276,7 +224,7 @@ function AddProduct() {
         </Grid>
 
         {/* Image Upload */}
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
           <input
             type="file"
             name="images"
@@ -286,8 +234,22 @@ function AddProduct() {
           />
         </Grid>
 
+        {/* Detail */}
+        <Grid item xs={12} sm={6}>
+          <TextField
+            label="Detail"
+            name="detail"
+            multiline
+            rows={4}
+            fullWidth
+            variant="outlined"
+            value={newProduct.detail}
+            onChange={handleChange}
+          />
+        </Grid>
+
         {/* Description */}
-        <Grid item xs={12}>
+        <Grid item xs={12} sm={6}>
           <TextField
             label="Description"
             name="description"

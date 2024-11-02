@@ -6,7 +6,6 @@ import {
   CardContent,
   CardMedia,
   Typography,
-  IconButton,
   styled,
 } from '@mui/material';
 import { Link } from 'react-router-dom';

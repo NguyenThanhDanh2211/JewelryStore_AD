@@ -23,7 +23,7 @@ function UpdateProduct() {
       try {
         const response = await getProductBySlug(slug);
         setProduct(response);
-        setUpdatedProduct(response); // Initialize updatedProduct with fetched data
+        setUpdatedProduct(response);
       } catch (error) {
         console.log('Error fetching product:', error);
       }
@@ -63,7 +63,7 @@ function UpdateProduct() {
       </Typography>
 
       <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={4}>
           <TextField
             required
             label="Product Name"
@@ -75,7 +75,7 @@ function UpdateProduct() {
           />
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={4}>
           <TextField
             required
             label="Price"
@@ -87,7 +87,19 @@ function UpdateProduct() {
           />
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={4}>
+          <TextField
+            required
+            label="Discount"
+            name="discount"
+            fullWidth
+            variant="outlined"
+            value={updatedProduct.discount || ''}
+            onChange={handleChange}
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={3}>
           <FormControl fullWidth variant="outlined">
             <InputLabel>Category</InputLabel>
             <Select
@@ -104,7 +116,7 @@ function UpdateProduct() {
           </FormControl>
         </Grid>
 
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={3}>
           <FormControl fullWidth variant="outlined">
             <InputLabel>Material</InputLabel>
             <Select
@@ -120,7 +132,47 @@ function UpdateProduct() {
           </FormControl>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={3}>
+          <TextField
+            label="Collection"
+            name="collect"
+            multiline
+            fullWidth
+            variant="outlined"
+            value={updatedProduct.collect || ''}
+            onChange={handleChange}
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={3}>
+          <FormControl fullWidth variant="outlined">
+            <InputLabel>Men's Collection</InputLabel>
+            <Select
+              name="men"
+              value={updatedProduct.men}
+              onChange={handleChange}
+              label="Men's Collect"
+            >
+              <MenuItem value={false}>No</MenuItem>
+              <MenuItem value={true}>Yes</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+
+        <Grid item xs={6}>
+          <TextField
+            label="Detail"
+            name="detail"
+            multiline
+            rows={4}
+            fullWidth
+            variant="outlined"
+            value={updatedProduct.detail || ''}
+            onChange={handleChange}
+          />
+        </Grid>
+
+        <Grid item xs={6}>
           <TextField
             label="Description"
             name="description"

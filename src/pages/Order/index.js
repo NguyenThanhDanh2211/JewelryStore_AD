@@ -1,5 +1,7 @@
+import OrderCo from '../../components/Order/Order';
+
 function Order() {
-  return <h1>order</h1>;
+  return <OrderCo />;
 }
 
 export default Order;

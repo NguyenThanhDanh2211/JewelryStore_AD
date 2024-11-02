@@ -1,13 +1,22 @@
-import * as httpRequest from '~/utils/httpRequest';
+import * as httpRequest from '../utils/httpRequest';
 
-export const placeOrder = async (token, orderData) => {
+export const getAllOrders = async () => {
   try {
-    const response = await httpRequest.post('/order/place-order', orderData, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await httpRequest.get('/order/admin/get-all');
 
+    return response;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+export const updateOrderStatus = async (orderId, status) => {
+  try {
+    const response = await httpRequest.put(
+      `/order/admin/order-status/${orderId}`,
+      { status }
+    );
     return response;
   } catch (error) {
     console.log(error);
