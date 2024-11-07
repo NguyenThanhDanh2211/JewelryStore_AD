@@ -80,7 +80,7 @@ function Discount() {
   return (
     <>
       {/* Input form for new discount */}
-      <Typography variant="h5" gutterBottom>
+      <Typography variant="h4" gutterBottom>
         Add Discount
       </Typography>
       <Box mb={3}>
@@ -150,7 +150,7 @@ function Discount() {
       </Snackbar>
 
       {/* Discount Grid */}
-      <Typography variant="h5" gutterBottom>
+      <Typography variant="h4" gutterBottom>
         All Discounts
       </Typography>
       {discounts.length > 0 ? (

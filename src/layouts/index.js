@@ -4,9 +4,8 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import Nav from '../components/Nav/Nav';
 
 const LayoutContainer = styled(Stack)(({ theme }) => ({
-  // height: '100vh',
   display: 'flex',
-  // backgroundColor: '#f9fafb',
+  backgroundColor: '#f9fafb',
   height: 'auto',
   top: 0,
 }));

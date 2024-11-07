@@ -8,6 +8,10 @@ import {
   Button,
   Snackbar,
   Alert,
+  Card,
+  CardContent,
+  CardActions,
+  CircularProgress,
 } from '@mui/material';
 import { getAllOrders, updateOrderStatus } from '../../services/orderService';
 
@@ -69,7 +73,11 @@ function Order() {
   };
 
   if (loading) {
-    return <Typography>Loading orders...</Typography>;
+    return (
+      <Box p={3} display="flex" justifyContent="center" alignItems="center">
+        <CircularProgress />
+      </Box>
+    );
   }
 
   if (error) {
@@ -84,44 +92,58 @@ function Order() {
       {orders.length > 0 ? (
         <Grid container spacing={2}>
           {orders.map((order) => (
-            <Grid item xs={4} key={order._id}>
-              <Box p={2} border={1} borderRadius={4}>
-                <Typography variant="h6">Order ID: {order._id}</Typography>
-                <Typography>Customer: {order.customer.name}</Typography>
-                <Typography>Items: {order.items.length}</Typography>
-                <Typography>
-                  Total: $
-                  {(cart.totalPrice ? cart.totalPrice : 0).toLocaleString(
-                    'en-US',
-                    { minimumFractionDigits: 2, maximumFractionDigits: 2 }
-                  )}
-                </Typography>
-                <Typography>Status: {order.status}</Typography>
+            <Grid item xs={12} sm={6} md={4} key={order._id}>
+              <Card>
+                <CardContent>
+                  <Typography variant="h6" gutterBottom>
+                    {order._id}
+                  </Typography>
+                  <Typography variant="body1">
+                    <strong>Customer:</strong> {order.customer.name}
+                  </Typography>
+                  <Typography variant="body1">
+                    <strong>Items:</strong> {order.items.length}
+                  </Typography>
+                  <Typography variant="body1">
+                    <strong>Total:</strong> $
+                    {(order.totalPrice ? order.totalPrice : 0).toLocaleString(
+                      'en-US',
+                      { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+                    )}
+                  </Typography>
+                  <Typography variant="body1" color="textSecondary">
+                    <strong>Status:</strong> {order.status}
+                  </Typography>
 
-                {/* Dropdown to update order status */}
-                <Select
-                  value={statusMap[order._id] || order.status}
-                  onChange={(e) =>
-                    handleStatusChange(order._id, e.target.value)
-                  }
-                  displayEmpty
-                  sx={{ marginTop: '10px', marginRight: '10px' }}
-                >
-                  <MenuItem value="pending">Pending</MenuItem>
-                  <MenuItem value="shipped">Shipped</MenuItem>
-                  <MenuItem value="delivered">Delivered</MenuItem>
-                  <MenuItem value="canceled">Canceled</MenuItem>
-                </Select>
+                  {/* Dropdown to update order status */}
+                  <Select
+                    value={statusMap[order._id] || order.status}
+                    onChange={(e) =>
+                      handleStatusChange(order._id, e.target.value)
+                    }
+                    displayEmpty
+                    fullWidth
+                    sx={{ marginTop: '10px' }}
+                  >
+                    <MenuItem value="pending">Pending</MenuItem>
+                    <MenuItem value="shipped">Shipped</MenuItem>
+                    <MenuItem value="delivered">Delivered</MenuItem>
+                    <MenuItem value="cancelled">Cancelled</MenuItem>
+                  </Select>
+                </CardContent>
 
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={() => handleUpdateStatus(order._id)}
-                  sx={{ marginTop: '10px' }}
-                >
-                  Update Status
-                </Button>
-              </Box>
+                <CardActions>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    fullWidth
+                    onClick={() => handleUpdateStatus(order._id)}
+                    sx={{ marginTop: '10px' }}
+                  >
+                    Update Status
+                  </Button>
+                </CardActions>
+              </Card>
             </Grid>
           ))}
         </Grid>
