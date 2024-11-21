@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProductBySlug } from '../../services/productService';
+import { getProductBySlug, updateProduct } from '../../services/productService';
 import {
   Box,
   TextField,
@@ -40,7 +40,7 @@ function UpdateProduct() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      // await updateProduct(slug, updatedProduct); // Ensure updateProduct accepts slug and updated data
+      await updateProduct(slug, updatedProduct); // Ensure updateProduct accepts slug and updated data
       alert('Product updated successfully!');
     } catch (error) {
       console.log('Error updating product:', error);

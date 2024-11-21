@@ -81,18 +81,15 @@ export const addProduct = async (productData) => {
     throw error;
   }
 };
-
-// export const getLimitProduct = async (page = 1, limit = 2) => {
-//   try {
-//     const response = await httpRequest.get(
-//       `product/get-limit-product?page=${page}&limit=${limit}`
-//     );
-
-//     return response;
-//   } catch (error) {
-//     console.log(error);
-//     throw error;
-//   }
-// };
-
-// // Function to get filtered products with pagination
+export const updateProduct = async (slug, productData) => {
+  try {
+    const response = await httpRequest.put(
+      `product/products/${slug}`,
+      productData
+    );
+    return response;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
