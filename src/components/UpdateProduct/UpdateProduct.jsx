@@ -94,7 +94,7 @@ function UpdateProduct() {
             name="discount"
             fullWidth
             variant="outlined"
-            value={updatedProduct.discount || ''}
+            value={updatedProduct.discount}
             onChange={handleChange}
           />
         </Grid>

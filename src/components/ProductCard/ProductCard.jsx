@@ -19,15 +19,17 @@ const ProductCard = styled(Card)(({ theme }) => ({
   height: '375px',
 }));
 
-const CartIconContainer = styled(Box)(({ theme }) => ({
+const DiscountContainer = styled(Box)(({ theme }) => ({
   position: 'absolute',
-  borderRadius: '50%',
-  backgroundColor: '#ffffff',
+  borderRadius: '8%',
+  color: '#DC586D',
+  border: '2px #DC586D solid',
   top: '15px',
-  right: '15px',
-  opacity: 0,
-  transition: 'opacity 0.3s ease',
-  zIndex: 1,
+  left: '15px',
+  zIndex: 2,
+  width: '70px',
+  display: 'flex',
+  justifyContent: 'center',
 }));
 
 function ProductCardComponent({ product, handleAddToCart }) {
@@ -37,20 +39,13 @@ function ProductCardComponent({ product, handleAddToCart }) {
         to={`/product-update/${product.slug}`}
         style={{ textDecoration: 'none' }}
       >
-        <ProductCard
-        // sx={{ height: 375, marginBottom: '25px', marginRight: '25px' }}
-        >
-          {/* <CartIconContainer
-            className="cart-icon"
-            onClick={(e) => {
-              e.preventDefault(); // Prevents navigation when clicking on the icon
-              handleAddToCart(product); // Add to cart and show alert
-            }}
-          >
-            <IconButton>
-              <CartIcon />
-            </IconButton>
-          </CartIconContainer> */}
+        <ProductCard>
+          {product.discount > 0 && (
+            <DiscountContainer>
+              <Typography variant="nav">{product.discount}% OFF</Typography>
+            </DiscountContainer>
+          )}
+
           <Box
             sx={{
               height: 300,
