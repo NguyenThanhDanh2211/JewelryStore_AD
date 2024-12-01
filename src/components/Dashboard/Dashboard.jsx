@@ -103,7 +103,11 @@ const Dashboard = () => {
             <CardContent>
               <Typography variant="h6">Revenue This Month</Typography>
               <Typography variant="h4">
-                ${monthlyStats.revenueThisMonth}
+                $
+                {monthlyStats.revenueThisMonth.toLocaleString('en-US', {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}
               </Typography>
             </CardContent>
           </Card>

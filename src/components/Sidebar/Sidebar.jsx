@@ -10,6 +10,8 @@ import {
   Box,
 } from '@mui/material';
 
+import logo from '../../assets/logo-regular.png';
+
 import { Dashboard } from '@mui/icons-material';
 import CategoryIcon from '@mui/icons-material/Category';
 import DiscountIcon from '@mui/icons-material/Discount';
@@ -33,12 +35,13 @@ function Sidebar() {
     <SidebarContainer>
       <Box
         display="flex"
+        my={4}
         alignItems="center"
         component="img"
-        src="https://websitedemos.net/jewellery-store-04/wp-content/uploads/sites/935/2021/08/logo-regular.png"
+        src={logo}
         alt="JS"
         height="auto"
-        width="150px"
+        width="200px"
       />
       <List sx={{ width: '100%' }}>
         <ListItem>

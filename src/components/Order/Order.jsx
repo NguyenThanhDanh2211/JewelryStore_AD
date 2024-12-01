@@ -128,7 +128,7 @@ function Order() {
                     <MenuItem value="pending">Pending</MenuItem>
                     <MenuItem value="shipped">Shipped</MenuItem>
                     <MenuItem value="delivered">Delivered</MenuItem>
-                    <MenuItem value="cancelled">Cancelled</MenuItem>
+                    <MenuItem value="canceled">Canceled</MenuItem>
                   </Select>
                 </CardContent>
 
